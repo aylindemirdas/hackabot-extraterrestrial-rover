@@ -28,7 +28,7 @@ def full_power():
 def normal_power(command):
     send_command(command)
     print(f"Command sent: {command}")
-    time.sleep(0.3)
+    time.sleep(0.1)
     send_command('S')
 
 # Function to stop the rover
