@@ -16,21 +16,15 @@ except serial.SerialException:
     exit()
 
 # Function to send commands to the rover
-
-
 def send_command(command):
     bluetooth.write(command.encode())
 
-# Function to control the rover at full power
-
-
+# Function to activate full power
 def full_power():
     send_command('F')
     print("Full power activated.")
 
-# Function to control the rover at normal power
-
-
+# Function to drive the rover at normal power
 def normal_power(command):
     send_command(command)
     print(f"Command sent: {command}")
@@ -38,20 +32,16 @@ def normal_power(command):
     send_command('S')
 
 # Function to stop the rover
-
-
 def stop():
     send_command('S')
     print("Rover stopped.")
 
-
+# Function to rotate the camera
 def rotate_camera(position):
     send_command(position)
     print(f"Camera Position: {position}")
 
 # Function to control the rover using the keyboard
-
-
 def control_rover():
     index = 0
     while True:
@@ -62,8 +52,8 @@ def control_rover():
             "left": "L",
             "right": "R",
         }
-
         positions = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
         key_event = keyboard.read_event()
         if key_event.event_type == "down":
             if key_event.name == 'esc':  # Press 'esc' to stop
