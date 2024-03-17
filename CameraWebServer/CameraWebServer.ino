@@ -35,8 +35,8 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid = "ESP32-CAM-ROVER-19";
-const char* password = "HOLA1234";
+const char* ssid = "SpikeyVision-Rover19";
+const char* password = "HOLA123456";
 
 void startCameraServer();
 void setupLedFlash(int pin);
