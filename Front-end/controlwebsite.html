@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <title>Rover 19</title>
+  <style>
+    body {
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    #main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #title {
+      position: absolute;
+      text-align: center;
+      font-size: 100px;
+      transform: translateX(-50%);
+      margin-top: 200px;
+      font-family: "VT323", monospace;
+      color: white;
+      text-shadow: 0 0 10px indigo;
+      animation: moveUpDown 2s infinite alternate;
+      transition: top 2s, left 2s;
+    }
+
+    #spaceship {
+      position: absolute;
+      top: -100px;
+      left: 47.5%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 100px;
+      background-image: url('spaceship.png');
+      background-size: cover;
+      opacity: 0;
+      margin-top: 20px;
+      animation: moveUpDown 2s infinite alternate;
+      transition: top 2s, left 2s;
+    }
+
+    #team5 {
+      font-family: "VT323", monospace;
+      color: white;
+      font-size: 70px;
+      position: absolute;
+      top: -100px;
+      left: 40%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      text-shadow: 0 0 10px indigo;
+      opacity: 0;
+      margin-top: 150px;
+      animation: moveUpDown 2s infinite alternate;
+      transition: top 2s, left 2s;
+    }
+
+    @keyframes moveUpDown {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeOutUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+
+  #main-container2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+  .main-container2[hidden] #up {
+    display: none;
+  }
+
+  .main-container2[hidden] #down {
+    display: none;
+  }
+
+  .main-container2[hidden] #left {
+    display: none;
+  }
+
+  .main-container2[hidden] #right {
+    display: none;
+  }
+
+  .main-container2[hidden] #video-container {
+    display: none;
+  }
+
+  .main-container2[hidden] #middleslice {
+    display: none;
+  }
+
+  .main-container2[hidden] #upperslice {
+    display: none;
+  }
+
+  .main-container2[hidden] #lowerslice {
+    display: none;
+  }
+
+  #video-container {
+    height:100%;
+    width:60vw;
+    background-color: black;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .up-container {
+    height:20%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:50px;
+    cursor: pointer;
+  }
+
+  .down-container {
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .left-container {
+    width: calc(20vw - 171px);
+    align-items: center;
+    justify-content: center;
+    padding-left: 171px;
+    cursor: pointer;
+  }
+
+  .right-container {
+    width: calc(20vw - 40px);
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px ;
+  }
+
+
+  #upperslice{
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #middleslice{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #lowerslice{
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class = "main-container" id="main-container">
+    <div class="title" id="title">Welcome to<br>Extraterrestrial Rover</div>
+    <div id="spaceship" class="spaceship"></div>
+    <div id="team5" class="spaceship">Team Rover 19</div>
+  </div>
+
+  <div class = "main-container2" id="main-container2" hidden>
+    <div id="upperslice">
+        <div id="up" class="up-container">
+            <img id="up-button" src="up.png" alt="Up Button" style="width: 150%; height: auto;">
+        </div>
+    </div>
+
+    <div id="middleslice" class="middleslice">
+        <div id="left" class="left-container">
+            <img id="left-button" src="left.png" alt="Left Button" style="height:136px; width: auto;">
+        </div>
+        <div id="video-container" class="video-container">
+        </div>
+        <div id="right" class="right-container">
+            <img id="right-button" src="right.png" alt="Right Button" style="height:136px; width: auto;">
+        </div>
+    </div>
+
+    <div id="lowerslice" class="lowerslice">
+        <div id="down" class="down-container">
+            <img id="down-button" src="down.png" alt="Down Button" style="width: 150%; height: auto;">
+        </div>
+    </div>
+
+  </div>
+  
+  
+
+  <script>
+    document.addEventListener('click', function() {
+      var spaceship = document.getElementById('spaceship');
+      var team5 = document.getElementById('team5');
+      spaceship.style.top = '400px';
+      spaceship.style.opacity = '1';
+      team5.style.top = '450px';
+      team5.style.opacity = '1';
+    });
+
+    document.getElementById('spaceship').addEventListener('click', function() {
+    var elements = document.querySelectorAll('#title, #spaceship, #team5');
+    elements.forEach(function(element) {
+      element.style.animation = 'fadeOutUp 2s forwards'; // Apply fade out animation
+    });
+    
+    setTimeout(function() {
+        document.getElementById('main-container2').removeAttribute('hidden');
+    }, 2000); // Timeout to match the duration of fade out animation
+  });
+
+
+  </script>
+</body>
+</html>
