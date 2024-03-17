@@ -3,7 +3,7 @@
 
     Welcome to our team's solution for the "Hack-a-Bot" Hackathon, 2024 edition.
 
-Attributions for art used in this project:
+Attributions for art used in this project :
 
 "spaceship.png"
 
