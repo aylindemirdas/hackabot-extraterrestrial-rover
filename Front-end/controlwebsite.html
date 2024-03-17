@@ -1,3 +1,7 @@
+<!--Welcome to the main control website that acts as in interface
+for the user controlling the rover.
+Please make sure you screen size is 755x842 or half screen size.-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +44,7 @@
     #spaceship {
       position: absolute;
       top: -100px;
-      left: 47.5%;
+      left: 43%;
       transform: translateX(-50%);
       width: 100px;
       height: 100px;
@@ -58,7 +62,7 @@
       font-size: 70px;
       position: absolute;
       top: -100px;
-      left: 40%;
+      left: 27%;
       transform: translateX(-50%);
       width: 400px;
       height: 200px;
@@ -128,10 +132,10 @@
   #video-container {
     height:100%;
     width:60vw;
-    background-color: black;
     opacity: 1;
     align-items: center;
     justify-content: center;
+    display: flex;
 
   }
 
@@ -139,7 +143,9 @@
     height:20%;
     align-items: center;
     justify-content: center;
-    padding-bottom:50px;
+    padding-bottom:70px;
+    padding-right: 70px;
+    padding-top: 120px;
     cursor: pointer;
   }
 
@@ -147,14 +153,17 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding-right: 60px;
+    padding-bottom: 78px;
   }
 
   .left-container {
-    width: calc(20vw - 171px);
+    width: 20vw;
     align-items: center;
     justify-content: center;
-    padding-left: 171px;
     cursor: pointer;
+    padding-left: 80px;
+    padding-right: 40px;
   }
 
   .right-container {
@@ -162,12 +171,13 @@
     align-items: center;
     justify-content: center;
     padding-left: 40px ;
+    padding-right: 80px;
   }
 
 
   #upperslice{
     height: 20vh;
-    width: 100vw;
+    width: 80vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -205,24 +215,25 @@
   <div class = "main-container2" id="main-container2" hidden>
     <div id="upperslice">
         <div id="up" class="up-container">
-            <img id="up-button" src="up.png" alt="Up Button" style="width: 150%; height: auto;">
+            <img id="up-button" src="up.png" alt="Up Button" style="width: 200%; height: auto;">
         </div>
     </div>
 
     <div id="middleslice" class="middleslice">
         <div id="left" class="left-container">
-            <img id="left-button" src="left.png" alt="Left Button" style="height:136px; width: auto;">
+            <img id="left-button" src="left.png" alt="Left Button" style="height:174px; width: auto;">
         </div>
         <div id="video-container" class="video-container">
+          <img id="camerarelease" src="camerarelease.png" alt="Camera Button" style="height:250px; width:auto;">
         </div>
         <div id="right" class="right-container">
-            <img id="right-button" src="right.png" alt="Right Button" style="height:136px; width: auto;">
+            <img id="right-button" src="right.png" alt="Right Button" style="height:174px; width: auto;">
         </div>
     </div>
 
     <div id="lowerslice" class="lowerslice">
         <div id="down" class="down-container">
-            <img id="down-button" src="down.png" alt="Down Button" style="width: 150%; height: auto;">
+            <img id="down-button" src="down.png" alt="Down Button" style="width: 200%; height: auto;">
         </div>
     </div>
 
@@ -234,22 +245,134 @@
     document.addEventListener('click', function() {
       var spaceship = document.getElementById('spaceship');
       var team5 = document.getElementById('team5');
-      spaceship.style.top = '400px';
+      spaceship.style.top = '500px';
       spaceship.style.opacity = '1';
-      team5.style.top = '450px';
+      team5.style.top = '500px';
       team5.style.opacity = '1';
     });
 
     document.getElementById('spaceship').addEventListener('click', function() {
     var elements = document.querySelectorAll('#title, #spaceship, #team5');
     elements.forEach(function(element) {
-      element.style.animation = 'fadeOutUp 2s forwards'; // Apply fade out animation
+      element.style.animation = 'fadeOutUp 2s forwards';
     });
     
     setTimeout(function() {
         document.getElementById('main-container2').removeAttribute('hidden');
-    }, 2000); // Timeout to match the duration of fade out animation
+    }, 2000);
   });
+
+  function handleButtonPressUp() {
+    document.getElementById('up-button').src = 'pressup.png';
+    var audio = new Audio('audio.m4a');
+    audio.play()
+  }
+
+  function handleButtonReleaseUp() {
+    document.getElementById('up-button').src = 'up.png';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    console.log("pressed")
+    if (event.key === 'ArrowUp') {
+      handleButtonPressUp();}});
+
+  document.addEventListener('keyup', function(event) {
+    console.log("released")
+    if (event.key === 'ArrowUp') {
+      handleButtonReleaseUp();
+    }
+  });
+
+  function handleButtonPressDown() {
+    document.getElementById('down-button').src = 'pressdown.png';
+    var audio = new Audio('audio.m4a');
+    audio.play()
+  }
+
+  function handleButtonReleaseDown() {
+    document.getElementById('down-button').src = 'down.png';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    console.log("pressed")
+    if (event.key === 'ArrowDown') {
+      handleButtonPressDown();}});
+
+  document.addEventListener('keyup', function(event) {
+    console.log("released")
+    if (event.key === 'ArrowDown') {
+      handleButtonReleaseDown();
+    }
+  });
+
+
+  function handleButtonPressRight() {
+    document.getElementById('right-button').src = 'pressright.png';
+    var audio = new Audio('audio.m4a');
+    audio.play()
+  }
+
+  function handleButtonReleaseRight() {
+    document.getElementById('right-button').src = 'right.png';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    console.log("pressed")
+    if (event.key === 'ArrowRight') {
+      handleButtonPressRight();}});
+
+  document.addEventListener('keyup', function(event) {
+    console.log("released")
+    if (event.key === 'ArrowRight') {
+      handleButtonReleaseRight();
+    }
+  });
+
+  function handleButtonPressLeft() {
+    document.getElementById('left-button').src = 'pressleft.png';
+    var audio = new Audio('audio.m4a');
+    audio.play()
+  }
+
+  function handleButtonReleaseLeft() {
+    document.getElementById('left-button').src = 'left.png';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    console.log("pressed")
+    if (event.key === 'ArrowLeft') {
+      handleButtonPressLeft();}});
+
+  document.addEventListener('keyup', function(event) {
+    console.log("released")
+    if (event.key === 'ArrowLeft') {
+      handleButtonReleaseLeft();
+    }
+  });
+
+  function handleButtonCameraUp() {
+    document.getElementById('camerarelease').src = 'camerapress.png';
+    var audio = new Audio('audio.m4a');
+    audio.play()
+  }
+
+  function handleButtonCameraDown() {
+    document.getElementById('camerarelease').src = 'camerarelease.png';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    console.log("pressed")
+    if (event.key === 'Meta') {
+      handleButtonCameraUp();}});
+
+  document.addEventListener('keyup', function(event) {
+    console.log("released")
+    if (event.key === 'Meta') {
+      handleButtonCameraDown();
+    }
+  });
+
 
 
   </script>
