@@ -1,4 +1,4 @@
-# Hack-a-Bot 2024 - "Extraterrestrial Rover" Challenge
+# Hack-A-Bot 2024 - "Extraterrestrial Rover" Challenge
 
 ## Team Members
 
@@ -9,7 +9,7 @@
 
 ## About the Project
 
-This is our solution for the "Hack-a-Bot" 2024 Hackathon, the "Extraterrestrial Rover Challenge". Equipped with an Arduino Uno, ESP32 camera module, motors, wheels, and other components, we designed and constructed a teleoperated rover capable of completing various tasks representative of extraterrestrial missions. Our rover successfully navigated through obstacle courses, pushed ping-pong balls into designated pits, and captured pictures of the environment. Through resourcefulness and innovation, we tackled the challenge of creating a robust rover that can withstand harsh environments and operate effectively without direct visibility. Our project demonstrates the ingenuity required for developing solutions in extreme environments, showcasing both hardware and software expertise.
+This is our solution for the "Hack-A-Bot" 2024 Hackathon, the "Extraterrestrial Rover Challenge". Equipped with an Arduino Uno, ESP32 camera module, motors, wheels, and other components, we designed and constructed a teleoperated rover capable of completing various tasks representative of extraterrestrial missions. Our rover successfully navigated through obstacle courses, pushed ping-pong balls into designated pits, and captured pictures of the environment. Through resourcefulness and innovation, we tackled the challenge of creating a robust rover that can withstand harsh environments and operate effectively without direct visibility. Our project demonstrates the ingenuity required for developing solutions in extreme environments, showcasing both hardware and software expertise.
 
 ## Contribution
 
